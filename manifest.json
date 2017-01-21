@@ -1,0 +1,12 @@
+{
+  "name": "Public Chat",
+  "short_name": "Chat",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": {
+    "src" : "/images/asd2.png",
+    "sizes" : "200x200",
+    "type" : "image/png"
+  }
+}

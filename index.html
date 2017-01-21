@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Nonton live streaming sambil ngobrol sama teman2">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Chat</title>
+ 
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Public Chat">
+  <meta name="theme-color" content="black">
+  <link rel="icon" href="images/asd2.png" type="image/png">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Public Chat">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#303F9F">
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.light_blue-indigo.min.css">
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  
+  <!-- App Styling -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  
+  <header>
+    <div class="title left">Public Chat</div>
+    <div class="account right" hidden id="sign-out"> Sign-out</div>
+    <div class="account right" hidden id="sign-in">Sign-in with Google</div>
+    <div class="account right" hidden id="user-name"></div>
+    <div class="account right" hidden id="user-pic"></div>
+  </header>
+
+  <main>
+    <div class="chat">
+      <div id="messages">
+        <span id="message-filler"></span>
+      </div>
+      <form id="message-form" action="#">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" id="message">
+          <label class="mdl-textfield__label" for="message">Message...</label>
+        </div>
+        <button id="submit" type="submit" disabled 
+                class="mdl-button mdl-js-button">Send</button>
+      </form>
+      <form id="image-form" action="#">
+        <input id="mediaCapture" type="file" accept="image/*,capture=camera">
+        <button id="submitImage" title="Add an image" hidden>
+          <i class="material-icons">image</i>
+        </button>
+      </form>
+    </div>
+
+    <div class="video">
+      <input type="text" placeholder="Paste Youtube URL" id="v-input">
+      <div class="video-container">
+        <iframe id="v-output" src=""></iframe>
+      </div>
+    </div>
+
+    <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+  </main>
+
+<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBekfkk7eLapz-9d8DkKV009hztD0Kns_c",
+    authDomain: "chat-62fb2.firebaseapp.com",
+    databaseURL: "https://chat-62fb2.firebaseio.com",
+    storageBucket: "chat-62fb2.appspot.com",
+    messagingSenderId: "56069490018"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="main.js"></script>
+<script src="video.js"></script>
+</body>
+</html>
